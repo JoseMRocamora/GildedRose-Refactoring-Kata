@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,6 +12,7 @@ class GildedRoseTest {
     private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final String NORMAL_ITEM = "Normal item";
+    private static final String CONJURED_MANA_CAKE = "Conjured Mana Cake";
 
 
     private Item[] getItems(String name, int sellIn, int quality) {
@@ -186,4 +188,19 @@ class GildedRoseTest {
         assertEquals(0, firstItem.quality);
     }
 
+    // - "Conjured" items degrade in Quality twice as fast as normal items
+    @Disabled
+    @Test
+    void conjured_items_degrade_in_quality_twice_as_fast_as_normal_items(){
+        // given
+        int initialSellIn = 11;
+        int initialQuality = 25;
+        Item[] items = getItems(CONJURED_MANA_CAKE, initialSellIn, initialQuality);
+        GildedRose app = new GildedRose(items);
+        // when
+        app.updateQuality();
+        //then
+        Item firstItem = app.items[0];
+        assertEquals(initialQuality - 2, firstItem.quality);
+    }
 }
