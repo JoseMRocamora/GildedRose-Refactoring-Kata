@@ -57,7 +57,6 @@ public class Product {
                             quality = quality + 1;
                         }
                     }
-
                 }
             } else {
                 if (quality > 0) {
@@ -73,19 +72,19 @@ public class Product {
         }
 
         if (sellIn < 0) {
-            if (!name.equals(AGED_BRIE)) {
-                if (!name.equals(BACKSTAGE_PASSES)) {
+            if (name.equals(AGED_BRIE)) {
+                if (quality < 50) {
+                    quality = quality + 1;
+                }
+            } else {
+                if (name.equals(BACKSTAGE_PASSES)) {
+                    quality = quality - quality;
+                } else {
                     if (quality > 0) {
                         if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                             quality = quality - 1;
                         }
                     }
-                } else {
-                    quality = quality - quality;
-                }
-            } else {
-                if (quality < 50) {
-                    quality = quality + 1;
                 }
             }
         }
