@@ -36,12 +36,16 @@ public class Product {
         this.quality = quality;
     }
 
-    public void updateQuality(){
-        if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES)) {
+    public void updateQuality() {
+        if (name.equals(AGED_BRIE)) {
             if (quality < 50) {
                 quality = quality + 1;
+            }
+        } else {
+            if (name.equals(BACKSTAGE_PASSES)) {
+                if (quality < 50) {
+                    quality = quality + 1;
 
-                if (name.equals(BACKSTAGE_PASSES)) {
                     if (sellIn < 11) {
                         if (quality < 50) {
                             quality = quality + 1;
@@ -53,12 +57,13 @@ public class Product {
                             quality = quality + 1;
                         }
                     }
+
                 }
-            }
-        } else {
-            if (quality > 0) {
-                if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                    quality = quality - 1;
+            } else {
+                if (quality > 0) {
+                    if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                        quality = quality - 1;
+                    }
                 }
             }
         }
