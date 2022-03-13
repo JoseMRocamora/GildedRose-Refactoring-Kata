@@ -38,24 +38,18 @@ public class Product {
 
     public void updateQuality() {
         if (name.equals(AGED_BRIE)) {
-            if (quality < 50) {
-                quality = quality + 1;
-            }
+            incrementQuality();
         } else {
             if (name.equals(BACKSTAGE_PASSES)) {
                 if (quality < 50) {
                     quality = quality + 1;
 
                     if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
+                        incrementQuality();
                     }
 
                     if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
+                        incrementQuality();
                     }
                 }
             } else {
@@ -73,9 +67,7 @@ public class Product {
 
         if (sellIn < 0) {
             if (name.equals(AGED_BRIE)) {
-                if (quality < 50) {
-                    quality = quality + 1;
-                }
+                incrementQuality();
             } else {
                 if (name.equals(BACKSTAGE_PASSES)) {
                     quality = quality - quality;
@@ -87,6 +79,12 @@ public class Product {
                     }
                 }
             }
+        }
+    }
+
+    private void incrementQuality() {
+        if (quality < 50) {
+            quality = quality + 1;
         }
     }
 }
