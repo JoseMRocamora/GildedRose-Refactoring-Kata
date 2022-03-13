@@ -2,6 +2,10 @@ package com.gildedrose;
 
 public class Product {
 
+    public static final String AGED_BRIE = "Aged Brie";
+    public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    public static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+
     private final String name;
     private int sellIn;
     private int quality;
@@ -33,18 +37,11 @@ public class Product {
     }
 
     public void updateQuality(){
-        if (!name.equals("Aged Brie")
-            && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (quality > 0) {
-                if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                    quality = quality - 1;
-                }
-            }
-        } else {
+        if (name.equals(AGED_BRIE) || name.equals(BACKSTAGE_PASSES)) {
             if (quality < 50) {
                 quality = quality + 1;
 
-                if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (name.equals(BACKSTAGE_PASSES)) {
                     if (sellIn < 11) {
                         if (quality < 50) {
                             quality = quality + 1;
@@ -58,17 +55,23 @@ public class Product {
                     }
                 }
             }
+        } else {
+            if (quality > 0) {
+                if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                    quality = quality - 1;
+                }
+            }
         }
 
-        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+        if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
             sellIn = sellIn - 1;
         }
 
         if (sellIn < 0) {
-            if (!name.equals("Aged Brie")) {
-                if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (!name.equals(AGED_BRIE)) {
+                if (!name.equals(BACKSTAGE_PASSES)) {
                     if (quality > 0) {
-                        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+                        if (!name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                             quality = quality - 1;
                         }
                     }
