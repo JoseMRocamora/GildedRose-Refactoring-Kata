@@ -5,7 +5,7 @@ import com.gildedrose.Product;
 
 public abstract class AbstractProduct implements Product {
 
-    protected final String name;
+    protected String name;
     protected int sellIn;
     protected int quality;
 
