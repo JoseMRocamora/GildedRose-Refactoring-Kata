@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import com.gildedrose.products.AbstractProduct;
+import com.gildedrose.products.GenericProduct;
+
 class GildedRose {
     Item[] items;
 
@@ -9,7 +12,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            Product product = new Product(item);
+            AbstractProduct product = new GenericProduct(item);
 
             product.updateQuality();
 
