@@ -4,8 +4,16 @@ import com.gildedrose.Item;
 
 public class GenericProduct extends AbstractProduct {
 
+    private final String name;
+
     public GenericProduct(Item item) {
         super(item);
+        this.name = item.name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override

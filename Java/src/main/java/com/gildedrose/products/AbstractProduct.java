@@ -5,20 +5,16 @@ import com.gildedrose.Product;
 
 public abstract class AbstractProduct implements Product {
 
-    protected String name;
     protected int sellIn;
     protected int quality;
 
     public AbstractProduct(Item item) {
-        this.name = item.name;
         this.sellIn = item.sellIn;
         this.quality = item.quality;
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
+    public abstract String getName();
 
     @Override
     public int getSellIn() {

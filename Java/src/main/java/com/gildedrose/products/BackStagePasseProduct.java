@@ -4,11 +4,15 @@ import com.gildedrose.Item;
 
 public class BackStagePasseProduct extends AbstractProduct{
 
-    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    static final String NAME = "Backstage passes to a TAFKAL80ETC concert";
 
     public BackStagePasseProduct(Item item) {
         super(item);
-        this.name = BACKSTAGE_PASSES;
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 
     @Override

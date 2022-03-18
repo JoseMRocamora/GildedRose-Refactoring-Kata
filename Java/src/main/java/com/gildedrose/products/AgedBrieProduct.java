@@ -4,18 +4,20 @@ import com.gildedrose.Item;
 
 public class AgedBrieProduct extends AbstractProduct{
 
-    private static final String AGED_BRIE = "Aged Brie";
+    static final String NAME = "Aged Brie";
 
     public AgedBrieProduct(Item item) {
         super(item);
-        this.name = AGED_BRIE;
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 
     @Override
     public void updateQuality() {
-        if (name.equals(AGED_BRIE)) {
-            incrementQuality();
-        }
+        incrementQuality();
 
         sellIn = sellIn - 1;
 
