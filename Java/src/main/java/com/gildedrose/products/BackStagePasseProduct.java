@@ -17,17 +17,18 @@ public class BackStagePasseProduct extends AbstractProduct{
 
     @Override
     public void doUpdateQuality() {
-        sellIn = sellIn - 1;
-
         if (sellIn < 0) {
             quality = 0;
         }
+
         if ((sellIn >= 0) && (sellIn < 5)) {
             incrementQuality(3);
         }
+
         if ((sellIn >= 5) && (sellIn < 10)) {
             incrementQuality(2);
         }
+
         if (sellIn >= 10) {
             incrementQuality(1);
         }

@@ -31,6 +31,8 @@ public abstract class AbstractProduct implements Product {
 
     @Override
     public void updateQuality() {
+        sellIn = sellIn - 1;
+
         doUpdateQuality();
 
         if (quality < MIN_QUALITY) {

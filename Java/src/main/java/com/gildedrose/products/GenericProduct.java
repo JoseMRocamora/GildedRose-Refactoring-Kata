@@ -18,8 +18,6 @@ public class GenericProduct extends AbstractProduct {
 
     @Override
     public void doUpdateQuality() {
-        sellIn = sellIn - 1;
-
         if (sellIn >= 0) {
             decrementQuality(1);
         }

@@ -17,8 +17,6 @@ public class AgedBrieProduct extends AbstractProduct{
 
     @Override
     public void doUpdateQuality() {
-        sellIn = sellIn - 1;
-
         if (sellIn >= 0) {
             incrementQuality(1);
         }
