@@ -17,18 +17,17 @@ public class AgedBrieProduct extends AbstractProduct{
 
     @Override
     public void doUpdateQuality() {
-        incrementQuality();
-
         sellIn = sellIn - 1;
 
-        if (sellIn < 0) {
-            incrementQuality();
+        if (sellIn >= 0) {
+            incrementQuality(1);
+        }
+        else {
+            incrementQuality(2);
         }
     }
 
-    private void incrementQuality() {
-        if (quality < 50) {
-            quality = quality + 1;
-        }
+    private void incrementQuality(int units) {
+        quality = quality + units;
     }
 }
