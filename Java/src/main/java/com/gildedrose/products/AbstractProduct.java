@@ -5,6 +5,9 @@ import com.gildedrose.Product;
 
 public abstract class AbstractProduct implements Product {
 
+    private static final int MIN_QUALITY = 0;
+    private static final int MAX_QUALITY = 50;
+
     protected int sellIn;
     protected int quality;
 
@@ -27,6 +30,17 @@ public abstract class AbstractProduct implements Product {
     }
 
     @Override
-    public abstract void updateQuality();
+    public void updateQuality() {
+        doUpdateQuality();
 
+        if (quality < MIN_QUALITY) {
+            quality = MIN_QUALITY;
+        }
+
+        if (quality > MAX_QUALITY) {
+            quality = MAX_QUALITY;
+        }
+    }
+
+    protected abstract void doUpdateQuality();
 }

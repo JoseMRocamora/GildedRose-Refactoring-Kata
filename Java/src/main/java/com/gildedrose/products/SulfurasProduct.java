@@ -1,13 +1,15 @@
 package com.gildedrose.products;
 
 import com.gildedrose.Item;
+import com.gildedrose.Product;
 
-public class SulfurasProduct extends AbstractProduct {
+public class SulfurasProduct implements Product {
 
     static final String NAME = "Sulfuras, Hand of Ragnaros";
+    private Item item;
 
     public SulfurasProduct(Item item) {
-        super(item);
+        this.item = item;
     }
 
     @Override
@@ -16,7 +18,18 @@ public class SulfurasProduct extends AbstractProduct {
     }
 
     @Override
+    public int getSellIn() {
+        return item.sellIn;
+    }
+
+    @Override
+    public int getQuality() {
+        return item.quality;
+    }
+
+    @Override
     public void updateQuality() {
-        // nothing to do
+        // do nothing
+        // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
     }
 }

@@ -16,7 +16,7 @@ public class BackStagePasseProduct extends AbstractProduct{
     }
 
     @Override
-    public void updateQuality() {
+    public void doUpdateQuality() {
         if (quality < 50) {
             quality = quality + 1;
 
