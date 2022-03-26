@@ -18,17 +18,17 @@ public class GenericProduct extends AbstractProduct {
 
     @Override
     public void doUpdateQuality() {
-        if (quality > 0) {
-            quality = quality - 1;
-        }
-
         sellIn = sellIn - 1;
 
-        if (sellIn < 0) {
-            if (quality > 0) {
-                quality = quality - 1;
-            }
+        if (sellIn >= 0) {
+            decrementQuality(1);
+        }
+        else {
+            decrementQuality(2);
         }
     }
 
+    void decrementQuality(int units) {
+        quality = quality - units;
+    }
 }
