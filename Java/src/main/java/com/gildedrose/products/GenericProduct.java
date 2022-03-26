@@ -5,10 +5,12 @@ import com.gildedrose.Item;
 public class GenericProduct extends AbstractProduct {
 
     private final String name;
+    protected int degradationVelocity;
 
     public GenericProduct(Item item) {
         super(item);
         this.name = item.name;
+        this.degradationVelocity = 1;
     }
 
     @Override
@@ -27,6 +29,6 @@ public class GenericProduct extends AbstractProduct {
     }
 
     void decrementQuality(int units) {
-        quality = quality - units;
+        quality = quality - (degradationVelocity * units);
     }
 }

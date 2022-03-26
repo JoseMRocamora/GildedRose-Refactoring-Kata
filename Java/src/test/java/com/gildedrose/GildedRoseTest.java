@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -189,7 +188,6 @@ class GildedRoseTest {
     }
 
     // - "Conjured" items degrade in Quality twice as fast as normal items
-    @Disabled
     @Test
     void conjured_items_degrade_in_quality_twice_as_fast_as_normal_items(){
         // given
@@ -202,5 +200,19 @@ class GildedRoseTest {
         //then
         Item firstItem = app.items[0];
         assertEquals(initialQuality - 2, firstItem.quality);
+    }
+
+    @Test
+    void conjured_items_degrade_in_quality_twice_as_fast_as_normal_items_also_past_sale_date(){
+        // given
+        int initialSellIn = 0;
+        int initialQuality = 25;
+        Item[] items = getItems(CONJURED_MANA_CAKE, initialSellIn, initialQuality);
+        GildedRose app = new GildedRose(items);
+        // when
+        app.updateQuality();
+        //then
+        Item firstItem = app.items[0];
+        assertEquals(initialQuality - 4, firstItem.quality);
     }
 }

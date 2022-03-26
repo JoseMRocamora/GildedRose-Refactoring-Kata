@@ -17,6 +17,9 @@ public class ProductFactory {
         else if (SulfurasProduct.NAME.equals(item.name)) {
             product = new SulfurasProduct(item);
         }
+        else if (ConjuredProduct.NAME.equals(item.name)) {
+            product = new ConjuredProduct(item);
+        }
         else {
             product = new GenericProduct(item);
         }
